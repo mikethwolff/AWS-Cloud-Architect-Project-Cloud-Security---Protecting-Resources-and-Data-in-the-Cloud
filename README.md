@@ -200,41 +200,21 @@ Use a non-default VPC so that your instance is not assigned a public IP address 
 
 Now you will run scripts that will simulate the following attack conditions: Making an SSH connection to the application server using brute force password cracking. Capturing secret recipe files from the s3 bucket using stolen API keys.
 
-Deliverables for Exercise 3:
-
-- E3T1_guardduty.png - Screenshot of Guard Duty findings specific to the Exercise 3, Task 1 attack.
-- E3T1.txt - Answer to the questions at the end of Exercise 3, Task 1.
-- E3T2_s3breach.png - Screenshot showing the resulting breach after the brute force attack.
-- Optional Task 3 - Screenshots showing attack attempts and monitoring or logs from the WAF showing blocked attempts.
-
 **Part 1: Brute force attack to exploit SSH ports facing the internet and an insecure configuration on the server**
 
 1. Log into the attack simulation server using your SSH key-pair.
-2. Run the below commands to start a brute force attack against the application server. You will need the application server hostname for this.
-3. Answer the following questions:
-- What findings were detected related to the brute force attack?
-- Take a screenshot of the Guard Duty findings specific to the attack. Title this screenshot E3T1_guardduty.png.
-- 
-Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information?
+2. Start a brute force attack against the application server. You will need the application server hostname for this.
 
-Submit text answers in E3T1.txt.
+**Part 2: Accessing Secret Recipe Data File from S3**
+
+Imagine a scenario where API keys used by the application server to read data from S3 were discovered and stolen by the brute force attack. This provides the attack instance the same API privileges as the application instance. We can test this scenario by attempting to use the API to read data from the secrets S3 bucket.
+
+1. Make sure you're still logged into the attack instance and run the following API calls to view and download files from the secret recipes S3 bucket. You will need the name of the S3 bucket for this. Take a screenshot showing the breach: E3T2_s3breach.png
 
 **Solution**
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E3T2_s3breach.png)
 
-![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E3T1_guardduty.png)
+**Task 4 - Implement Security Hardening**
 
-E3T1.txt
-```
-# Describe GuardDuty findings that were detected related to the brute force attack
-
-Guard Duty unfortunately shows no findings. This has been discussed in the mentor help section by many students and we were advised to mention it here. 
-I provide the Guard Duty screenshot "E3T1_guardduty.png" and a screenshot called "E3T2_hydra.png" which shows the attack.
-
-# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
-
-A GuardDuty finding represents a potential security issue detected within your network. GuardDuty generates a finding whenever it detects unexpected and potentially malicious activity in your AWS environment. 
-
-To detect unauthorized and unexpected activity in your AWS environment, GuardDuty analyzes and processes data from AWS CloudTrail event logs, VPC Flow Logs, and DNS logs to detect anomalies involving the following AWS resource types: IAM Access Keys, EC2 Instances, and S3 Buckets. While in transit from these data sources to GuardDuty, all of the log data is encrypted. GuardDuty extracts various fields from these logs for profiling and anomaly detection, and then discards the logs.
-```
 
 
