@@ -355,5 +355,53 @@ Submit your design as a ppt or png image named DevSecOpsPipeline.[ppt or png].
 
 **Solution**
 
-![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/DevSecOpsPipeline.png)
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/DevSecOpsPipline.png)
+
+**Part 2 - Tools and Documentation**
+
+You will need to determine appropriate tools to incorporate into the pipeline to ensure that security vulnerabilities are found.
+
+1. Identify tools that will allow you to do the following: a. Scan infrastructure as code templates. b. Scan AMI’s or containers for OS vulnerabilities. c. Scan an AWS environment for cloud configuration vulnerabilities.
+2. For each tool - identify an example compliance violation or vulnerability which it might expose.
+
+Submit your answers in E5T2.txt
+
+E5T2.txt
+```
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+
+Chef InSpec is an open-source framework for testing and auditing your applications and infrastructure.
+
+Terrascan is a static code analyzer for Infrastructure as Code. Key features: 500+ Policies for security best practices.
+
+### Example vulnerability
+
+Chef InSpec: MFA should be enabled.
+
+Terrascan: Ingress open to 0.0.0.0/0
+
+
+##Scan AMI’s or containers for OS vulnerabilities
+
+Trivy is a simple and comprehensive scanner for vulnerabilities in container images, file systems, and Git repositories, as well as for configuration issues. Trivy detects vulnerabilities of OS packages.
+
+### Example vulnerability
+
+Trivy: https://nvd.nist.gov/
+
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+
+Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity and unauthorized behavior to protect your AWS accounts.
+
+Amazon Inspector is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS.
+
+### Example vulnerability
+
+Amazon GuardDuty: SSH brute force attack on S3 bucket.
+
+Amazon Inspector: Instance i-06af4f55a1ea4f137 is configured to allow users to log in with root credentials over SSH, without having to use a command authenticated by a public key. This increases the likelihood of a successful brute-force attack.
+```
 
