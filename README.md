@@ -330,3 +330,30 @@ You can encrypt existing Amazon S3 objects with the AWS CLI. To encrypt existing
 If we apply the original cloud formation templates, we would go back to were we started. Usually it is not best practise to make changes to stack resources outside of CloudFormation which create a mismatch between your stack's template and the current state of your stack resources, as we have it now, which will cause errors if you update or delete the stack. Also you want to be able to reproduce the stack. If you want to try changes before adding it to the template, these changes should be added to the template afterwards, organized by lifecycle and ownership.
 ```
 
+**Task 5 - Designing a DevSecOps Pipeline**
+
+Take a look at a very common deployment pipeline diagrammed below:
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/devopspipeline.png)
+
+The high-level steps are as follows:
+
+1. The user makes a change to the application code or OS configuration for a service.
+2. Once the change is committed to source, a build is kicked off resulting in an AMI or a container image.
+3. The infrastructure as code is updated with the new AMI or container image to use.
+4. Changes to cloud configuration or infrastructure as code may have also been committed.
+5. A deployment to the environment ensues applying the changes
+
+**Part 1: Design a DevSecOps pipeline**
+Update the starter DevOpsPipeline.ppt (or create your own diagram using a different tool) At minimum you will include steps for:
+
+- Infrastructure as code compliance scanning.
+- AMI or container image scanning.
+- Post-deployment compliance scanning.
+
+Submit your design as a ppt or png image named DevSecOpsPipeline.[ppt or png].
+
+**Solution**
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/DevSecOpsPipeline.png)
+
