@@ -90,7 +90,6 @@ Invoke the web service using the application load balancer URL:
 ```
 http://<ApplicationURL>/free_recipe
 ```
-You should receive a recipe for banana bread.
 
 The AMIs specified in the cloud formation template exist in the us-east-1 (N. Virginia) region. You will need to set this as your default region when deploying resources for this project.
 
