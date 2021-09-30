@@ -271,4 +271,29 @@ Least Privilege Access to S3
 
 ![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T2_s3copy.png)
 
+Apply Default Server-side Encryption to the S3 Bucket
+This will cause the S3 service to encrypt any objects that are stored going forward by default. Use the below guide to enable this on both S3 buckets.
+Amazon S3 Default Encryption for S3 Buckets
+
+Capture the screenshot of the secret recipes bucket showing that default encryption has been enabled.
+
+**Solution**
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T2_s3encryption.png)
+
+**Part 3: Check Monitoring Tools to see if the Changes that were made have Reduced the Number of Findings**
+
+1. Go to AWS inspector and run the inspector scan that was run in Exercise 2.
+2. After 20-30 mins - check Security Hub to see if the finding count reduced.
+3. Check AWS Config rules to see if any of the rules are now in compliance.
+4. Submit screenshots of Inspector, Security Hub, and AWS Config titled E4T3_inspector.png, E4T3_securityhub.png, and E4T3_config.png respectively.
+
+
+**Solution**
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T3_securityhub.png)
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T3_config.png)
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T3_inspector.png)
 
