@@ -262,4 +262,13 @@ Apply Network Controls to Restrict Application Server Traffic
 
 ![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T2_sshattempt.png)
 
+Least Privilege Access to S3
+1. Update the IAM policy for the instance profile role used by the web application instance to only allow read access to the free recipes S3 bucket.
+2. Test the change by using the attack instance to attempt to copy the secret recipes.
+3. Submit a screenshot of the updated IAM policy and the attempt to copy the files.
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T2_s3iampolicy.png)
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T2_s3copy.png)
+
 
