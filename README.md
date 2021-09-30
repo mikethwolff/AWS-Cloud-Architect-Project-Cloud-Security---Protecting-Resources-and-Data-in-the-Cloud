@@ -22,4 +22,37 @@ Part 1: Review Architecture Diagram
 In this task, the objective is to familiarize yourself with the starting architecture diagram. An architecture diagram has been provided which reflects the resources that will be deployed in your AWS account.
 
 AWS-WebServiceDiagram-v1-insecure.png
+
 **Solution:**
+
+E1T4.txt
+```
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+
+The WebAppSG security group inboud rules are unecessary:
+
+TCP port 80
+SSH port 22
+All traffic at all ports
+
+We can delete these inbound rules and apply the principle of least privilege. 
+
+
+# Poor practice 2
+
+The current instance role policy is allowing access from the application server to all S3 buckets, this should be restricted to specific defined buckets only (free receipe).
+
+#Poor practice 2
+
+The security groups' inbound and outbound rules set CIDR to 0.0.0.0/0. which allow unrestricted access to any TCP/UDP ports and should have been restricted access to only those IP addresses that require it in order to implement the principle of least privilege and reduce the possibility of a breach.
+
+```
+
+
+
+
+
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Design-Provision-and-Monitor-AWS-Infrastructure-at-Scale/blob/main/Design%2C%20Provision%20and%20Monito%20AWS%20Infrastructure%20at%20Scale/Udacity_Diagram_1.jpg)
