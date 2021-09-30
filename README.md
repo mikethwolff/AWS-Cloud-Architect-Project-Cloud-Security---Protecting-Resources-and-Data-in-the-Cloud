@@ -216,5 +216,50 @@ Imagine a scenario where API keys used by the application server to read data fr
 
 **Task 4 - Implement Security Hardening**
 
+**Part 1 - Remediation plan**
+
+As a Cloud Architect, you have been asked to apply security best practices to the environment so that it can withstand attacks and be more secure.
+
+Identify 2-3 changes that can be made to our environment to prevent an SSH brute force attack from the internet.
+Neither instance should have had access to the secret recipes bucket; even in the instance that API credentials were compromised how could we have prevented access to sensitive data?
+
+**Solution**
+E4T1.txt
+```
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+
+Use GuardDuty to identify brute force attacks.
+Use AWS WAF to protect resources from common attacks.
+Remove ssh login with password - set ssh config PasswordAuthentication to "no"
+Take the least-privilege approach and only open the ports needed for communication. Ensure that the operating system is hardened and that unnecessary tools and permissive configurations are disabled.
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+
+Specify the users that can access specific buckets and objects (user policies).
+Monitor S3 resources (CloudTrail logs).
+Use encryption on S3 bucket objects.
+```
+
+**Task 2 - Hardening**
+
+Remove SSH Vulnerability on the Application Instance
+1. To disable SSH password login on the application server instance.
+2. Test that this made a difference. Run the brute force attack again from Exercise 3, Task 1.
+3. Take a screenshot of the terminal window where you ran the attack highlighting the remediation and name it E4T2_sshbruteforce.png.
+
+**Solution**
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T2_sshbruteforce.png)
+
+Apply Network Controls to Restrict Application Server Traffic
+1. Update the security group which is assigned to the web application instance. Any method you use to do this is acceptable. The requirement is that we only allow connections to port 5000 from the public subnet where the application load balancer resides.
+2. Test that the change worked by attempting to make an SSH connection to the web application instance using its public URL.
+3. Submit a screenshot of the security group change and your SSH attempt.
+
+**Solution**
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T2_networksg.png)
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T2_sshattempt.png)
 
 
