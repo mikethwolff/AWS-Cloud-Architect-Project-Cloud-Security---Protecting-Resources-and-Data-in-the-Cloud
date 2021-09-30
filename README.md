@@ -153,6 +153,46 @@ Please submit screenshots of:
 
 **Solution**
 
-
 ![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E2T2_config.png)
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E2T2_inspector.png)
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E2T2_securityhub.png)
+
+E2T2.txt
+```
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+Vulnerabilities:
+
+CIS.4.1     Ensure no security groups allow ingress from 0.0.0.0/0 to port 22
+CIS.2.9	Ensure VPC flow logging is enabled in all VPCs
+
+TCP port 20 which is associated with 'FTP' is reachable from the internet
+TCP port 21 which is associated with 'FTP' is reachable from the internet
+UDP port 23 which is associated with 'Telnet' is reachable from the internet
+TCP port 23 which is associated with 'Telnet' is reachable from the internet
+UDP port 21 which is associated with 'FTP' is reachable from the internet
+UDP port 20 which is associated with 'FTP' is reachable from the internet ...
+
+S3.4 S3 buckets should have server-side encryption enabled
+S3.1 S3 Block Public Access setting should be enabled
+
+EC2 EBS default encryption should be enabled
+EC2 instances should not have a public IPv4 address
+
+Recommendations:
+
+Provide specific IP address range for security groups ingress on port 22.
+Enable VPC flow logging.
+
+You can edit the Security Groups to remove access from the internet on port ...
+
+Enable default encryption on S3 buckets.
+
+You can use the Amazon EC2 console to enable default encryption for Amazon EBS volumes.
+Use a non-default VPC so that your instance is not assigned a public IP address by default.
+```
 
