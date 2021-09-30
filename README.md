@@ -18,7 +18,8 @@ In this project, you will:
 
 Deliverables for Exercise 1: E1T4.txt - Text file identifying 2 poor security practices with justification.
 
-Part 1: Review Architecture Diagram
+**Part 1: Review Architecture Diagram**
+
 In this task, the objective is to familiarize yourself with the starting architecture diagram. An architecture diagram has been provided which reflects the resources that will be deployed in your AWS account.
 
 Insecure Webservice:
@@ -36,7 +37,7 @@ Attack flow:
 - Scripts simulating an attack will be run from a separate instance which is in an un-trusted subnet.
 - The scripts will attempt to break into the web application instance using the public IP and attempt to access data in the secret recipe S3 bucket.
 
-**Task 2: Review CloudFormation Template**
+**Part 2: Review CloudFormation Template**
 
 In this task, the objective is to familiarize yourself with the starter code and to get you up and running quickly. Spend a few minutes going through the .yml files in the starter folder to get a feel for how parts of the code will map to the components in the architecture diagram.
 
@@ -53,7 +54,7 @@ Application stack:
 - Security groups
 - IAM role
 
-**Task 3: Deployment of Initial Infrastructure**
+**Part 3: Deployment of Initial Infrastructure**
 
 In this task, the objective is to deploy the CloudFormation stacks that will create the below environment.
 
@@ -93,7 +94,8 @@ You should receive a recipe for banana bread.
 
 The AMIs specified in the cloud formation template exist in the us-east-1 (N. Virginia) region. You will need to set this as your default region when deploying resources for this project.
 
-**Task 4: Identify Bad Practices**
+**Part 4: Identify Bad Practices**
+
 Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security. List these 2 practices, and a justification for your choices, in the text file named E1T4.txt.
 
 Deliverables:
@@ -126,4 +128,31 @@ The current instance role policy is allowing access from the application server 
 The security groups' inbound and outbound rules set CIDR to 0.0.0.0/0. which allow unrestricted access to any TCP/UDP ports and should have been restricted access to only those IP addresses that require it in order to implement the principle of least privilege and reduce the possibility of a breach.
 ```
 
-![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Design-Provision-and-Monitor-AWS-Infrastructure-at-Scale/blob/main/Design%2C%20Provision%20and%20Monito%20AWS%20Infrastructure%20at%20Scale/Udacity_Diagram_1.jpg)
+**Task 2: Enable Security Monitoring**
+
+Deliverables for Exercise 2:
+
+- E2T2_config.png - Screenshot of AWS Config showing non-compliant rules.
+- E2T2_inspector.png - Screenshot of AWS Inspector showing scan results.
+- E2T2_securityhub.png - Screenshot of AWS Security Hub showing compliance standards for CIS foundations.
+- E2T2.txt - Provide recommendations on how to remediate the vulnerabilities.
+ 
+**Part 1: Enable Security Monitoring using AWS Native Tools**
+
+First, we will set up security monitoring to ensure that the AWS account and environment configuration is in compliance with the CIS standards for cloud security.
+
+**Part 2: Identify and Triage Vulnerabilities**
+
+Please submit screenshots of:
+
+- AWS Config - showing non-compliant rules
+- AWS Inspector - showing scan results
+- AWS Security Hub - showing compliance standards for CIS foundations.
+- Name the files E2T2_config.png, E2T2_inspector.png, E2T2_securityhub.png respectively.
+- Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project. Provide recommendations on how to remediate the vulnerabilities. Submit your findings in E2T2.txt
+
+**Solution**
+
+
+![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E2T2_config.png)
+
