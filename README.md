@@ -297,3 +297,36 @@ Capture the screenshot of the secret recipes bucket showing that default encrypt
 
 ![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/E4T3_inspector.png)
 
+**Part 4: Questions and Analysis**
+
+1. What additional architectural change can be made to reduce the internet-facing attack surface of the web application instance.
+2. Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+3. Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+4. The changes you made above were done through the console or CLI; describe the outcome if the original cloud formation templates are applied to this environment?
+5. Submit your answers in E4T4.txt.
+
+E4T4.txt
+```
+
+# What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+
+An AWS web application firewall can block possible attack vectors to instances.
+Remove external access to instances and login to web application instances via AWS Systems Manager.
+
+
+# Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+
+No, creating VPC private endpoint would not prevent the unauthorized access to the secrets bucket if the IAM permissions are still insecure. An optional layer of security for your VPC would be an ACL, that acts as a firewall for controlling traffic 
+
+
+# Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+
+No, AWS encrypts an object during the upload, using server-side encryption and encrypts the object before it is saved to disk. Already existing objects will not be affected by this modification.
+You can encrypt existing Amazon S3 objects with the AWS CLI. To encrypt existing objects in place, you can use the Copy Object or Copy Part API. This copies the objects with the same name and encrypts the object data using server-side encryption.
+
+
+# What would happen if the original cloud formation templates are applied to this environment.
+
+If we apply the original cloud formation templates, we would go back to were we started. Usually it is not best practise to make changes to stack resources outside of CloudFormation which create a mismatch between your stack's template and the current state of your stack resources, as we have it now, which will cause errors if you update or delete the stack. Also you want to be able to reproduce the stack. If you want to try changes before adding it to the template, these changes should be added to the template afterwards, organized by lifecycle and ownership.
+```
+
