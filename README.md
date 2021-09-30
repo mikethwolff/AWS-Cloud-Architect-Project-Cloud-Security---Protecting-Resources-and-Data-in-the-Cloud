@@ -21,6 +21,8 @@ Deliverables for Exercise 1: E1T4.txt - Text file identifying 2 poor security pr
 Part 1: Review Architecture Diagram
 In this task, the objective is to familiarize yourself with the starting architecture diagram. An architecture diagram has been provided which reflects the resources that will be deployed in your AWS account.
 
+Insecure Webservice:
+
 ![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Cloud-Security-Protecting-Resources-and-Data-in-the-Cloud/blob/main/Cloud%20Security%20-%20Protecting%20Resources%20and%20Data%20in%20the%20Cloud/AWS-WebServiceDiagram-v1-insecure.png)
 
 Expected user flow:
@@ -58,15 +60,17 @@ In this task, the objective is to deploy the CloudFormation stacks that will cre
 1. We will utilize the AWS CLI in this guide, however, you are welcome to use the AWS console to deploy the CloudFormation templates.
 
 - Make sure that your IDE (preferably VS Code) is integrated with AWS.
-- From the root directory of the repository - execute the below command to deploy the templates.
+- From the root directory of the repository
 - Deploy the S3 buckets
 - Deploy the VPC and Subnets
 - Deploy the Application Stack
-- You will need to specify a pre-existing key-pair name. If you don't have a pre-existing key-pair, create a new one in the AWS Console. Note - Your key's region must exist in the same region that you plan to deploy your stack.
+- You will need to specify a pre-existing key-pair name. If you don't have a pre-existing key-pair, create a new one in the AWS Console. 
+
+Note: Your key's region must exist in the same region that you plan to deploy your stack.
 
 2. Once you see Status is CREATE_COMPLETE for all 3 stacks, obtain the required parameters needed for the project.
 
-Obtain the name of the S3 bucket by navigating to the Outputs section of the stack
+- Obtain the name of the S3 bucket by navigating to the Outputs section of the stack
 
 Note down the names of the two other buckets that have been created, one for free recipes and one for secret recipes. You will need the bucket names to upload example recipe data to the buckets and to run the attack scripts.
 
@@ -76,18 +80,20 @@ Note down the names of the two other buckets that have been created, one for fre
 - You can get these from the Outputs section of the c3-app stack.
 
 3. Upload data to S3 buckets
-- Upload the free recipes to the free recipe S3 bucket from step 2. Do this by typing this command into the console (you will replace <BucketNameRecipesFree> with your bucket name)
-- Upload the secret recipes to the secret recipe S3 bucket from step 2. Do this by typing this command into the console (you will replace <BucketNameRecipesSecret> with your bucket name)
+- Upload the free recipes to the free recipe S3 bucket from step 2. Do this by typing this command into the console (you will replace "BucketNameRecipesFree" with your bucket name)
+- Upload the secret recipes to the secret recipe S3 bucket from step 2. Do this by typing this command into the console (you will replace "BucketNameRecipesSecret" with your bucket name)
 
 4. Test the application
 Invoke the web service using the application load balancer URL:
 
+```
 http://<ApplicationURL>/free_recipe
+```
 You should receive a recipe for banana bread.
 
 The AMIs specified in the cloud formation template exist in the us-east-1 (N. Virginia) region. You will need to set this as your default region when deploying resources for this project.
 
-Task 4: Identify Bad Practices
+**Task 4: Identify Bad Practices**
 Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security. List these 2 practices, and a justification for your choices, in the text file named E1T4.txt.
 
 Deliverables:
@@ -118,7 +124,6 @@ The current instance role policy is allowing access from the application server 
 #Poor practice 2
 
 The security groups' inbound and outbound rules set CIDR to 0.0.0.0/0. which allow unrestricted access to any TCP/UDP ports and should have been restricted access to only those IP addresses that require it in order to implement the principle of least privilege and reduce the possibility of a breach.
-
 ```
 
 ![alt text](https://github.com/mikethwolff/AWS-Cloud-Architect-Project-Design-Provision-and-Monitor-AWS-Infrastructure-at-Scale/blob/main/Design%2C%20Provision%20and%20Monito%20AWS%20Infrastructure%20at%20Scale/Udacity_Diagram_1.jpg)
